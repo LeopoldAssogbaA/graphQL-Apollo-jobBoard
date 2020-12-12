@@ -1,2 +1,3 @@
-# graphQL-Apollo-jobBoard
-Job Board from GraphQL by Example (Udemy course)
+# GraphQL Job Board
+
+Sample application used in the GraphQL by Example course.
