@@ -7,8 +7,14 @@ const Query = {
 };
 
 const Mutation = {
-  createJob: (root, { input }) => {
-    const id = db.jobs.create(input);
+  // { user } = context.user
+  createJob: (root, { input }, { user }) => {
+    // check if user auth
+    if (!user) {
+      throw new Error("Unauthorized");
+    }
+    // job companyId is the same as the user (better with a select from the client)
+    const id = db.jobs.create({ ...input, companyId: user.companyId });
     return db.jobs.get(id);
   },
 };
